@@ -31,7 +31,7 @@ const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
   const [open, setOpen] = useState(false);
 
-  const handleLanguageChange = (value: "en" | "kh") => {
+  const handleLanguageChange = (value: any) => {
     setLanguage(value);
   };
 
@@ -60,8 +60,8 @@ const LanguageSwitcher = () => {
               value={language}
               onValueChange={handleLanguageChange}
             >
-              <DropdownMenuRadioItem value="en">🇬🇧ENG</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="kh">🇰🇭KHM</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="en">🇬🇧 ENG</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="kh">🇰🇭 KHM</DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
             <DropdownMenuSeparator />
           </motion.div>

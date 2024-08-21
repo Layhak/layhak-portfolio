@@ -9,6 +9,7 @@ import { LanguageProvider } from "@/config/languageContext";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import Navbar from "@/components/navbar/navbar";
+import SocialFloatingBar from "@/components/socialFloatingBar";
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +29,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={"dark"}>
+    <html
+      lang="en"
+      className={"dark"}
+      suppressContentEditableWarning
+      suppressHydrationWarning
+    >
       <body className={`${kantumruyPro.variable} ${inter.variable}`}>
         <LanguageProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
@@ -36,10 +42,8 @@ export default function RootLayout({
               <Suspense fallback={<Loading />}>
                 <header>
                   <Navbar />
-                  {/*<ThemeSwitcher />*/}
-                  {/*<LanguageSwitcher />*/}
                 </header>
-
+                <SocialFloatingBar />
                 {children}
               </Suspense>
             </ErrorBoundary>

@@ -7,34 +7,68 @@ import {
 
 export const siteConfig = {
   name: "Layhak Portfolio",
-  navItems: [
-    {
-      label: "Home",
-      href: "/",
-      tooltip: "Go to Home Page",
-      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      label: "Experience",
-      href: "/experience",
-      tooltip: "Go to  Experience Page",
-      icon: (
-        <IconUxCircle className="h-4 w-4 text-neutral-500 dark:text-white" />
-      ),
-    },
-    {
-      label: "Skills",
-      href: "/skill",
-      tooltip: "Go to Skills Page",
-      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      label: "Eduducation",
-      href: "/edu",
-      tooltip: "Go to Education Page",
-      icon: <IconSchool className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-  ],
+  navItems: {
+    en: [
+      {
+        label: "Home",
+        href: "/",
+        tooltip: "Go to Home Page",
+        icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      },
+      {
+        label: "Experience",
+        href: "/experience",
+        tooltip: "Go to Experience Page",
+        icon: (
+          <IconUxCircle className="h-4 w-4 text-neutral-500 dark:text-white" />
+        ),
+      },
+      {
+        label: "Skills",
+        href: "/skill",
+        tooltip: "Go to Skills Page",
+        icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      },
+      {
+        label: "Education",
+        href: "/edu",
+        tooltip: "Go to Education Page",
+        icon: (
+          <IconSchool className="h-4 w-4 text-neutral-500 dark:text-white" />
+        ),
+      },
+    ],
+    kh: [
+      {
+        label: "ទំព័រដើម",
+        href: "/",
+        tooltip: "ទៅកាន់ទំព័រដើម",
+        icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      },
+      {
+        label: "បទពិសោធន៍",
+        href: "/experience",
+        tooltip: "ទៅកាន់ទំព័របទពិសោធន៍",
+        icon: (
+          <IconUxCircle className="h-4 w-4 text-neutral-500 dark:text-white" />
+        ),
+      },
+      {
+        label: "ជំនាញ",
+        href: "/skill",
+        tooltip: "ទៅកាន់ទំព័រជំនាញ",
+        icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      },
+      {
+        label: "ការអប់រំ",
+        href: "/edu",
+        tooltip: "ទៅកាន់ទំព័រការអប់រំ",
+        icon: (
+          <IconSchool className="h-4 w-4 text-neutral-500 dark:text-white" />
+        ),
+      },
+    ],
+  },
   metadata: {
     title: "Layhak Portfolio",
     description:
@@ -62,7 +96,6 @@ export const siteConfig = {
           height: 630,
           alt: "Layhak Logo Ecommerce Website",
         },
-        // { url: process.env.NEXT_PUBLIC_LOGO_URL + 'logo.png', alt: 'Exclusive Shopping Deals in Cambodia' },
       ],
       siteName: "layhak portfolio",
     },
