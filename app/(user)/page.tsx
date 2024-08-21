@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
+import { useLanguage } from "@/config/languageContext";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { motion } from "framer-motion";
-import { useLanguage } from "@/config/languageContext";
 
 const translations = {
   en: {
@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <AuroraBackground>
-      <motion.div
+      <motion.section
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{
@@ -33,17 +33,16 @@ export default function Home() {
         }}
         className="relative flex flex-col gap-4 items-center justify-center px-4"
       >
-        {/* Place the language switcher at the top or anywhere appropriate */}
         <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
-          {content.title}
+          <h1> {content.title}</h1>
         </div>
         <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
-          {content.subtitle}
+          <h1> {content.subtitle}</h1>
         </div>
         <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2">
-          {content.buttonText}
+          <h1> {content.buttonText}</h1>
         </button>
-      </motion.div>
+      </motion.section>
     </AuroraBackground>
   );
 }

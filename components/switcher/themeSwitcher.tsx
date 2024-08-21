@@ -1,5 +1,7 @@
 "use client";
 import { useTheme } from "next-themes";
+import { IconMoon, IconSun } from "@tabler/icons-react";
+import { Button } from "@/components/ui/button";
 
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
@@ -7,12 +9,17 @@ const ThemeSwitcher = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
   return (
-    <button
-      className="flex items-center gap-2 rounded-md border border-transparent bg-gradient-to-br from-sky-200 to-blue-200 px-4 py-2 text-sm font-medium transition-colors hover:border-sky-300 hover:bg-gradient-to-bl hover:from-sky-300 hover:to-blue-300 dark:border-neutral-700 dark:bg-gradient-to-br dark:from-blue-700 dark:to-sky-700 dark:hover:border-neutral-500 dark:hover:from-blue-500 dark:hover:to-sky-500"
+    <Button
+      variant={"default"}
+      className="inline-flex py-3 px-4  animate-shimmer rounded-full items-center justify-center  border border-slate-300 dark:border-slate-800 dark:bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] bg-[linear-gradient(110deg,#f9fafb,45%,#e2e8f0,55%,#f9fafb)] font-medium text-slate-400 transition-colors "
       onClick={onChange}
     >
-      {theme === "light" ? "🌞" : "🌚"}
-    </button>
+      {theme === "light" ? (
+        <IconSun className={"w-3 h-3"} />
+      ) : (
+        <IconMoon className={"w-3 h-3"} />
+      )}
+    </Button>
   );
 };
 

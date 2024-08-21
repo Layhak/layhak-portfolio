@@ -1,14 +1,39 @@
+import {
+  IconHome,
+  IconSchool,
+  IconUser,
+  IconUxCircle,
+} from "@tabler/icons-react";
+
 export const siteConfig = {
   name: "Layhak Portfolio",
   navItems: [
-    { label: "Home", href: "/", tooltip: "Go to Home Page" },
+    {
+      label: "Home",
+      href: "/",
+      tooltip: "Go to Home Page",
+      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
     {
       label: "Experience",
       href: "/experience",
       tooltip: "Go to  Experience Page",
+      icon: (
+        <IconUxCircle className="h-4 w-4 text-neutral-500 dark:text-white" />
+      ),
     },
-    { label: "Skills", href: "/skill", tooltip: "Go to Skills Page" },
-    { label: "Eduducation", href: "/edu", tooltip: "Go to Education Page" },
+    {
+      label: "Skills",
+      href: "/skill",
+      tooltip: "Go to Skills Page",
+      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
+    {
+      label: "Eduducation",
+      href: "/edu",
+      tooltip: "Go to Education Page",
+      icon: <IconSchool className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
   ],
   metadata: {
     title: "Layhak Portfolio",
