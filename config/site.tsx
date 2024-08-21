@@ -13,29 +13,25 @@ export const siteConfig = {
         label: "Home",
         href: "/",
         tooltip: "Go to Home Page",
-        icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+        icon: <IconHome className="h-4 w-4 " />,
       },
       {
         label: "Experience",
         href: "/experience",
         tooltip: "Go to Experience Page",
-        icon: (
-          <IconUxCircle className="h-4 w-4 text-neutral-500 dark:text-white" />
-        ),
+        icon: <IconUxCircle className="h-4 w-4" />,
       },
       {
         label: "Skills",
         href: "/skill",
         tooltip: "Go to Skills Page",
-        icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+        icon: <IconUser className="h-4 w-4 " />,
       },
       {
         label: "Education",
         href: "/edu",
         tooltip: "Go to Education Page",
-        icon: (
-          <IconSchool className="h-4 w-4 text-neutral-500 dark:text-white" />
-        ),
+        icon: <IconSchool className="h-4 w-4 " />,
       },
     ],
     kh: [
@@ -43,29 +39,25 @@ export const siteConfig = {
         label: "ទំព័រដើម",
         href: "/",
         tooltip: "ទៅកាន់ទំព័រដើម",
-        icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+        icon: <IconHome className="h-4 w-4" />,
       },
       {
         label: "បទពិសោធន៍",
         href: "/experience",
         tooltip: "ទៅកាន់ទំព័របទពិសោធន៍",
-        icon: (
-          <IconUxCircle className="h-4 w-4 text-neutral-500 dark:text-white" />
-        ),
+        icon: <IconUxCircle className="h-4 w-4" />,
       },
       {
         label: "ជំនាញ",
         href: "/skill",
         tooltip: "ទៅកាន់ទំព័រជំនាញ",
-        icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+        icon: <IconUser className="h-4 w-4" />,
       },
       {
         label: "ការអប់រំ",
         href: "/edu",
         tooltip: "ទៅកាន់ទំព័រការអប់រំ",
-        icon: (
-          <IconSchool className="h-4 w-4 text-neutral-500 dark:text-white" />
-        ),
+        icon: <IconSchool className="h-4 w-4" />,
       },
     ],
   },

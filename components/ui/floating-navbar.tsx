@@ -9,14 +9,16 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/switcher/languageSwitcher";
-import { useLanguage } from "@/config/languageContext"; // Assuming you have a context or hook to manage language
+import { useLanguage } from "@/config/languageContext";
 import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/button";
 import ThemeSwitcher from "@/components/switcher/themeSwitcher";
+import { usePathname } from "next/navigation";
 
 export const FloatingNav = ({ className }: { className?: string }) => {
-  const { language } = useLanguage(); // Assume this hook provides the current language
+  const { language } = useLanguage();
   const navItems = siteConfig.navItems[language];
+  const pathname = usePathname();
 
   const { scrollY }: any = useScroll();
   const [visible, setVisible] = useState(true);
@@ -54,13 +56,16 @@ export const FloatingNav = ({ className }: { className?: string }) => {
               key={`link=${idx}`}
               href={navItem.href}
               className={cn(
-                "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500",
+                "relative dark:text-neutral-50 items-center flex space-x-1",
+                pathname === navItem.href
+                  ? "bg-gradient-to-br from-blue-400 to-indigo-800  bg-clip-text text-transparent font-bold dark:text-gradient-to-br dark:from-blue-500 dark:to-indigo-800"
+                  : "text-neutral-600 dark:hover:text-neutral-400 hover:text-neutral-500",
               )}
             >
-              <span className="block sm:hidden">{navItem.icon}</span>
-              <span className="hidden sm:inline-flex gap-2 text-sm items-center">
-                {navItem.icon} {navItem.label}
+              <span className={pathname === navItem.href ? "text-primary" : ""}>
+                {navItem.icon}
               </span>
+              <span>{navItem.label}</span>
             </Link>
           ))}
           <ThemeSwitcher />

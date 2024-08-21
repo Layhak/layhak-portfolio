@@ -44,10 +44,10 @@ const FloatingDockMobile = ({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={cn("fixed left-0  block lg:hidden", className)}>
+    <div className={cn("fixed   block lg:hidden", className)}>
       <button
         onClick={() => setOpen(!open)}
-        className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center"
+        className="h-10 w-10 mx-1 rounded-full bg-neutral-50 dark:bg-neutral-950 border border-transparent dark:border-white/[0.2] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center"
       >
         {open ? (
           <IconX className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
@@ -60,7 +60,7 @@ const FloatingDockMobile = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          className="mt-4 flex flex-col gap-4 items-center rounded-2xl bg-transparent px-3 py-4"
+          className="mt-4 flex flex-col gap-4 items-center rounded-2xl bg-transparent "
         >
           {items.map((item) => (
             <IconContainerMobile key={item.title} {...item} />
@@ -80,7 +80,7 @@ function IconContainerMobile({
 }) {
   return (
     <Link href={href}>
-      <div className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center h-10 w-10">
+      <div className="aspect-square mx-1 rounded-full bg-neutral-50 dark:bg-neutral-950 border border-transparent dark:border-white/[0.2] flex items-center justify-center h-10 w-10 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
         <div className="flex items-center justify-center h-4 w-4">{icon}</div>
       </div>
     </Link>
@@ -100,7 +100,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseY.set(e.pageY)}
       onMouseLeave={() => mouseY.set(Infinity)}
       className={cn(
-        "mx-auto hidden lg:flex w-16 gap-4 flex-col items-center rounded-2xl bg-gray-50 dark:bg-neutral-900 px-3 py-4",
+        "mx-auto hidden lg:flex w-16 gap-4 flex-col  items-center rounded-2xl bg-gray-50 dark:bg-gray-950 px-3 py-4",
         className,
       )}
     >
@@ -155,7 +155,7 @@ function IconContainer({
         style={{ width: size, height: size }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center relative"
+        className="aspect-square rounded-full dark:bg-gray-950 bg-gray-50 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center relative border border-transparent dark:border-white/[0.2]"
       >
         <motion.div
           style={{ width: iconSize, height: iconSize }}
@@ -169,7 +169,7 @@ function IconContainer({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 left-[100%] flex items-center justify-start pl-2 text-xs text-neutral-700 dark:text-white"
+              className="absolute inset-0 left-[100%] flex items-center justify-start pl-2 text-xs text-neutral-600 dark:text-neutral-50 "
             >
               {title}
             </motion.div>

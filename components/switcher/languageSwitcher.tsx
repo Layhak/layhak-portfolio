@@ -40,14 +40,23 @@ const LanguageSwitcher = () => {
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
-          className={"rounded-full hover:bg-slate-200 dark:hover:bg-slate-900"}
+          className={
+            "rounded-full hover:bg-slate-200 dark:hover:bg-slate-900 border border-transparent dark:border-white/[0.2] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
+          }
         >
           {language === "en" ? "🇬🇧 ENG" : "🇰🇭 KHM"}
         </Button>
       </DropdownMenuTrigger>
       {open && (
-        <DropdownMenuContent>
+        <DropdownMenuContent
+          className={
+            "rounded-lg bg-gray-50 dark:bg-gray-950 border border-transparent dark:border-white/[0.2] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
+          }
+        >
           <motion.div
+            className={
+              "rounded-2xl bg-gray-50 dark:bg-gray-950 border border-transparent "
+            }
             initial="hidden"
             animate="visible"
             exit="hidden"
@@ -55,7 +64,7 @@ const LanguageSwitcher = () => {
             variants={contentVariants}
           >
             <DropdownMenuLabel>Select Language</DropdownMenuLabel>
-            <DropdownMenuSeparator />
+            <DropdownMenuSeparator className="bg-gray-50 dark:bg-white/[0.2]" />
             <DropdownMenuRadioGroup
               value={language}
               onValueChange={handleLanguageChange}
@@ -63,7 +72,6 @@ const LanguageSwitcher = () => {
               <DropdownMenuRadioItem value="en">🇬🇧 ENG</DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="kh">🇰🇭 KHM</DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
-            <DropdownMenuSeparator />
           </motion.div>
         </DropdownMenuContent>
       )}

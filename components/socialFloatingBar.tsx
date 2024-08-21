@@ -8,13 +8,16 @@ import {
   IconBrandTelegram,
   IconBrandX,
 } from "@tabler/icons-react";
+import { cn } from "@/lib/utils";
 
 let socialItems: { title: string; icon: React.JSX.Element; href: string }[];
 socialItems = [
   {
     title: "Facebook",
     icon: (
-      <IconBrandFacebook className="h-4 w-4 text-neutral-500 dark:text-white" />
+      <IconBrandFacebook
+        className={cn("h-4 w-4 text-neutral-500 dark:text-white")}
+      />
     ),
     href: "https://www.linkedin.com/in/layhak/",
   },
@@ -55,9 +58,7 @@ export default function SocialFloatingBar() {
       desktopClassName={
         "fixed z-20 bg-transparent dark:bg-transparent top-1/3 "
       }
-      mobileClassName={
-        "fixed z-10 bg-transparent dark:bg-transparent top-1/3 left-0 bottom-4"
-      }
+      mobileClassName={"fixed z-10 bg-transparent dark:bg-transparent top-1/3 "}
       items={socialItems}
     />
   );
