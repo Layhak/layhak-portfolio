@@ -1,6 +1,12 @@
 "use client";
 
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 interface LanguageContextProps {
   language: "en" | "kh";
@@ -23,7 +29,19 @@ export const useLanguage = () => {
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<"en" | "kh">("en");
+  const [language, setLanguageState] = useState<"en" | "kh">("en");
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language");
+    if (savedLanguage === "en" || savedLanguage === "kh") {
+      setLanguageState(savedLanguage);
+    }
+  }, []);
+
+  const setLanguage = (language: "en" | "kh") => {
+    setLanguageState(language);
+    localStorage.setItem("language", language);
+  };
 
   const getLanguage = () => {
     return language;

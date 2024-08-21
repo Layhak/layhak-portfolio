@@ -1,4 +1,5 @@
 import {
+  IconBook,
   IconHome,
   IconSchool,
   IconUser,
@@ -33,6 +34,12 @@ export const siteConfig = {
         tooltip: "Go to Education Page",
         icon: <IconSchool className="h-4 w-4 " />,
       },
+      {
+        label: "Blog",
+        href: "/blog",
+        tooltip: "Go to Blog Page",
+        icon: <IconBook className="h-4 w-4 " />,
+      },
     ],
     kh: [
       {
@@ -58,6 +65,12 @@ export const siteConfig = {
         href: "/edu",
         tooltip: "ទៅកាន់ទំព័រការអប់រំ",
         icon: <IconSchool className="h-4 w-4" />,
+      },
+      {
+        label: "ទំព័រប័ណ្ណសារ",
+        href: "/blog",
+        tooltip: "ទៅកាន់ទំព័រប័ណ្ណសារ",
+        icon: <IconBook className="h-4 w-4" />,
       },
     ],
   },
