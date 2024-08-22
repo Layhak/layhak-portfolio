@@ -38,14 +38,25 @@ const LanguageSwitcher = () => {
   return (
     <DropdownMenu onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="ghost"
-          className={
-            "rounded-full hover:bg-slate-200 dark:hover:bg-slate-900 border border-transparent dark:border-white/[0.2] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
-          }
-        >
-          {language === "en" ? "🇬🇧 ENG" : "🇰🇭 KHM"}
-        </Button>
+        <div>
+          <Button
+            variant="ghost"
+            className={
+              "rounded-full ring-0 hover:bg-slate-200 dark:hover:bg-slate-900 border border-transparent dark:border-white/[0.2] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] active:border-slate-400 dark:active:border-white/[0.2] focus-visible:ring-0 hidden md:block"
+            }
+          >
+            {language === "en" ? "🇬🇧 ENG" : "🇰🇭 KHM"}
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className={
+              "rounded-full ring-0 hover:bg-slate-200 dark:hover:bg-slate-900 border border-transparent dark:border-white/[0.2] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] active:border-slate-400 dark:active:border-white/[0.2] focus-visible:ring-0 md:hidden block"
+            }
+          >
+            {language === "en" ? "🇬🇧" : "🇰🇭"}
+          </Button>
+        </div>
       </DropdownMenuTrigger>
       {open && (
         <DropdownMenuContent
