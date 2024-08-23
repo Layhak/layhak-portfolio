@@ -15,7 +15,8 @@ import { Button } from "@/components/ui/button";
 import ThemeSwitcher from "@/components/switcher/themeSwitcher";
 import { usePathname } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { IconMenu2 } from "@tabler/icons-react";
+import { IconLogin, IconMenu2 } from "@tabler/icons-react";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 export const FloatingNav = ({ className }: { className?: string }) => {
   const { language } = useLanguage();
@@ -119,10 +120,15 @@ export const FloatingNav = ({ className }: { className?: string }) => {
           <section className="flex items-center justify-center gap-1">
             <ThemeSwitcher />
             <LanguageSwitcher />
-            <Button variant="outline" className={"relative rounded-full w-32"}>
-              <span>Login</span>
-              <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent h-px" />
-            </Button>
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="button"
+              duration={1}
+              className="dark:bg-neutral-950 bg-neutral-50 text-neutral-950 dark:text-neutral-50 flex items-center space-x-2 border-0 font-semibold hover:text-primary dark:hover:text-primary transition-colors duration-300 ease-in-out"
+            >
+              <IconLogin className="h-4 w-4" />
+              Login
+            </HoverBorderGradient>
           </section>
         </motion.nav>
       )}
