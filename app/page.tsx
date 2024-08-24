@@ -3,23 +3,30 @@ import React from "react";
 import { useLanguage } from "@/config/languageContext";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { motion } from "framer-motion";
+import { FlipWords } from "@/components/ui/flip-words";
+import { Button } from "@/components/ui/button";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 const translations = {
   en: {
-    title: "Background lights are cool you know.",
-    subtitle: "And this, is chemical burn.",
-    buttonText: "Debug now",
+    name: "Layhak",
+    buttonText: "Contact me now",
+    words: ["Modern", "Clean", "Responsive"],
+    splitWords: ["Website", "With", "Layhak"],
   },
   kh: {
-    title: "ពន្លឺផ្ទៃខាងក្រោយគឺត្រជាក់អ្នកដឹងទេ។",
-    subtitle: "ហើយនេះគឺជាដំបៅគីមី។",
-    buttonText: "ដំណើរការទីនេះ",
+    name: "ឡាយហាក់",
+    buttonText: "ទំនាក់ទំនងមកខ្ញុំឥឡូវនេះ",
+    words: ["ទំនើប", "ស្អាត", "ឆ្លាតវៃ"],
+    splitWords: ["ជាមួយ", "ឡាយហាក់"],
   },
 };
 
 export default function Home() {
   const { language } = useLanguage();
   const content = translations[language];
+  const words = content.words;
+  const splitWords = content.splitWords.map((word) => ({ text: word }));
 
   return (
     <AuroraBackground>
@@ -33,15 +40,23 @@ export default function Home() {
         }}
         className="relative flex flex-col gap-4 items-center justify-center px-4"
       >
-        <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
-          <h1> {content.title}</h1>
+        <div className="h-[40rem] flex justify-center items-center flex-col px-4">
+          <div className="text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
+            {language === "en" ? (
+              "Build"
+            ) : (
+              <>
+                បង្កើត <span className="font-bold text-primary ">គេហទំព័រ</span>
+              </>
+            )}
+            <FlipWords words={words} language={language} duration={3000} />
+            <br />
+            <TypewriterEffectSmooth words={splitWords} language={language} />
+            <Button className="bg-natural-50 dark:bg-neutral-950 rounded-full w-fit dark:text-neutral-50 text-neutral-950 px-4 py-2">
+              {content.buttonText}
+            </Button>
+          </div>
         </div>
-        <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
-          <h1> {content.subtitle}</h1>
-        </div>
-        <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2">
-          <h1> {content.buttonText}</h1>
-        </button>
       </motion.section>
     </AuroraBackground>
   );

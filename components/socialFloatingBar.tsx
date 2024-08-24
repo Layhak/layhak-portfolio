@@ -44,7 +44,7 @@ socialItems = [
     icon: (
       <IconBrandGithub className="h-4 w-4 text-neutral-500 dark:text-white" />
     ),
-    href: "https://github.com/layhak/portfolio",
+    href: "https://github.com/layhak",
   },
   {
     title: "Twitter",

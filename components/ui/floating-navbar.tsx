@@ -50,7 +50,7 @@ export const FloatingNav = ({ className }: { className?: string }) => {
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.2 }}
           className={cn(
-            "flex justify-between  max-w-fit fixed top-5 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-gray-950 bg-gray-50 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-20 pr-2 pl-2 lg:pl-8 py-2 items-center  space-x-1 sm:space-x-4",
+            "flex justify-between  max-w-fit fixed top-5 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-gray-950 bg-gray-50 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-20 pr-3 pl-4 lg:pl-8 py-2 items-center  space-x-1 sm:space-x-4",
             className,
           )}
         >
@@ -62,7 +62,7 @@ export const FloatingNav = ({ className }: { className?: string }) => {
                   size="icon"
                   className="shrink-0 md:hidden"
                 >
-                  <IconMenu2 className="h-8 w-8 text-slate-500" />
+                  <IconMenu2 className="h-6 w-6 text-slate-500" />
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>

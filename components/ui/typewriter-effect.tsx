@@ -1,107 +1,12 @@
 "use client";
-
 import { cn } from "@/lib/utils";
-import { motion, stagger, useAnimate, useInView } from "framer-motion";
-import { useEffect } from "react";
-
-export const TypewriterEffect = ({
-  words,
-  className,
-  cursorClassName,
-}: {
-  words: {
-    text: string;
-    className?: string;
-  }[];
-  className?: string;
-  cursorClassName?: string;
-}) => {
-  // split text inside of words into array of characters
-  const wordsArray = words.map((word) => {
-    return {
-      ...word,
-      text: word.text.split(""),
-    };
-  });
-
-  const [scope, animate] = useAnimate();
-  const isInView = useInView(scope);
-  useEffect(() => {
-    if (isInView) {
-      animate(
-        "span",
-        {
-          display: "inline-block",
-          opacity: 1,
-          width: "fit-content",
-        },
-        {
-          duration: 0.3,
-          delay: stagger(0.1),
-          ease: "easeInOut",
-        }
-      );
-    }
-  }, [isInView]);
-
-  const renderWords = () => {
-    return (
-      <motion.div ref={scope} className="inline">
-        {wordsArray.map((word, idx) => {
-          return (
-            <div key={`word-${idx}`} className="inline-block">
-              {word.text.map((char, index) => (
-                <motion.span
-                  initial={{}}
-                  key={`char-${index}`}
-                  className={cn(
-                    `dark:text-white text-black opacity-0 hidden`,
-                    word.className
-                  )}
-                >
-                  {char}
-                </motion.span>
-              ))}
-              &nbsp;
-            </div>
-          );
-        })}
-      </motion.div>
-    );
-  };
-  return (
-    <div
-      className={cn(
-        "text-base sm:text-xl md:text-3xl lg:text-5xl font-bold text-center",
-        className
-      )}
-    >
-      {renderWords()}
-      <motion.span
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.8,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-        className={cn(
-          "inline-block rounded-sm w-[4px] h-4 md:h-6 lg:h-10 bg-blue-500",
-          cursorClassName
-        )}
-      ></motion.span>
-    </div>
-  );
-};
+import { motion } from "framer-motion";
 
 export const TypewriterEffectSmooth = ({
   words,
   className,
   cursorClassName,
+  language,
 }: {
   words: {
     text: string;
@@ -109,28 +14,61 @@ export const TypewriterEffectSmooth = ({
   }[];
   className?: string;
   cursorClassName?: string;
+  language: string;
 }) => {
-  // split text inside of words into array of characters
+  // Function to determine if the character is non-whitespace
+  const isNonWhitespace = (char: string): boolean => char.trim().length > 0;
+
   const wordsArray = words.map((word) => {
+    const textArray = word.text.split("");
+    // Reverse iterate to find the last non-whitespace character
+    const lastNonWhitespaceIndex = textArray.reduce(
+      (lastIndex, char, index) => (isNonWhitespace(char) ? index : lastIndex),
+      -1,
+    );
     return {
       ...word,
-      text: word.text.split(""),
+      text: textArray,
+      lastNonWhitespaceIndex, // Record the last non-whitespace character index
     };
   });
+
   const renderWords = () => {
     return (
       <div>
         {wordsArray.map((word, idx) => {
+          // Determine if the current word is the next to last word
+          const isNextToLast =
+            language === "kh"
+              ? idx === wordsArray.length - 2
+              : idx === wordsArray.length - 2;
+
           return (
-            <div key={`word-${idx}`} className="inline-block">
-              {word.text.map((char, index) => (
-                <span
-                  key={`char-${index}`}
-                  className={cn(`dark:text-white text-black `, word.className)}
-                >
-                  {char}
-                </span>
-              ))}
+            <div
+              key={`word-${idx}`}
+              className={cn("inline-block", {
+                "text-primary font-bold": isNextToLast,
+              })}
+            >
+              {word.text.map((char, index) => {
+                // Apply styles to the character if it is the last non-whitespace character
+                const isLastNonWhitespace =
+                  index === word.lastNonWhitespaceIndex;
+                return (
+                  <span
+                    key={`char-${index}`}
+                    className={cn(
+                      "dark:text-white text-black",
+                      word.className,
+                      {
+                        "text-primary font-bold": isLastNonWhitespace,
+                      },
+                    )}
+                  >
+                    {char}
+                  </span>
+                );
+              })}
               &nbsp;
             </div>
           );
@@ -156,7 +94,7 @@ export const TypewriterEffectSmooth = ({
         }}
       >
         <div
-          className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold"
+          className="text-xs sm:text-base md:text-xl lg:text-3xl xl:text-5xl font-bold"
           style={{
             whiteSpace: "nowrap",
           }}
@@ -173,13 +111,12 @@ export const TypewriterEffectSmooth = ({
         }}
         transition={{
           duration: 0.8,
-
           repeat: Infinity,
           repeatType: "reverse",
         }}
         className={cn(
-          "block rounded-sm w-[4px]  h-4 sm:h-6 xl:h-12 bg-blue-500",
-          cursorClassName
+          "block rounded-sm w-[4px] h-4 sm:h-6 xl:h-12 bg-blue-500",
+          cursorClassName,
         )}
       ></motion.span>
     </div>
