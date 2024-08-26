@@ -5,6 +5,10 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 import { motion } from "framer-motion";
 import { FlipWords } from "@/components/ui/flip-words";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { GlareCard } from "@/components/ui/glare-card";
+import Image from "next/image";
+import layhak from "@/public/image/hak.jpeg";
+import { cn } from "@/lib/utils";
 
 const translations = {
   en: {
@@ -12,8 +16,18 @@ const translations = {
     buttonText: "Contact me now",
     words: ["Modern", "Clean", "Responsive"],
     splitWords: [
-      { text: "With" },
-      { text: "Layhak", className: "text-primary font-bold dark:text-primary" },
+      {
+        text: "Website",
+
+        className: cn("text-primary font-bold dark:text-primary"),
+      },
+      {
+        text: "With",
+      },
+      {
+        text: "Layhak",
+        className: cn("text-primary font-bold dark:text-primary"),
+      },
     ],
   },
   kh: {
@@ -24,7 +38,7 @@ const translations = {
       { text: "ជាមួយ" },
       {
         text: "ឡាយហាក់",
-        className: "text-primary font-bold dark:text-primary",
+        className: cn("text-primary font-bold dark:text-primary"),
       },
     ],
   },
@@ -46,9 +60,9 @@ export default function Home() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative flex flex-col gap-4 items-center justify-center px-4"
+        className="relative"
       >
-        <div className="h-[40rem] flex justify-center items-center flex-col px-4">
+        <div className=" flex justify-center flex-col md:flex-row items-center gap-5 px-4">
           <div className="text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
             {language === "en" ? (
               <>Build</>
@@ -58,15 +72,6 @@ export default function Home() {
               </>
             )}
             <FlipWords words={words} language={language} duration={3000} />
-            {language === "en" ? (
-              <>
-                <span className="text-primary font-bold dark:text-primary">
-                  Website
-                </span>
-              </>
-            ) : (
-              ""
-            )}
             <TypewriterEffectSmooth
               className={"text-neutral-600 dark:text-neutral-400"}
               words={splitWords}
@@ -97,6 +102,17 @@ export default function Home() {
               <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-blue-500/0 via-blue-500/90 to-blue-500/0 dark:from-emerald-400/0 dark:via-emerald-400/90 dark:to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
             </button>
           </div>
+
+          <GlareCard className="flex flex-col items-center justify-center">
+            <Image
+              className="h-full w-full absolute inset-0 object-cover"
+              src={layhak}
+              alt="Layhak"
+              quality={100}
+              width={400}
+              height={400}
+            />
+          </GlareCard>
         </div>
       </motion.section>
     </AuroraBackground>
