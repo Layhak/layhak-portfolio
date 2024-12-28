@@ -8,41 +8,7 @@ import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { GlareCard } from "@/components/ui/glare-card";
 import Image from "next/image";
 import layhak from "@/public/image/hak.jpeg";
-import { cn } from "@/lib/utils";
-
-const translations = {
-  en: {
-    name: "Layhak",
-    buttonText: "Contact me now",
-    words: ["Modern", "Clean", "Responsive"],
-    splitWords: [
-      {
-        text: "Website",
-
-        className: cn("text-primary font-bold dark:text-primary"),
-      },
-      {
-        text: "With",
-      },
-      {
-        text: "Layhak",
-        className: cn("text-primary font-bold dark:text-primary"),
-      },
-    ],
-  },
-  kh: {
-    name: "ឡាយហាក់",
-    buttonText: "ទំនាក់ទំនងមកខ្ញុំឥឡូវនេះ",
-    words: ["ទំនើប", "ស្អាត", "ឆ្លាតវៃ"],
-    splitWords: [
-      { text: "ជាមួយ" },
-      {
-        text: "ឡាយហាក់",
-        className: cn("text-primary font-bold dark:text-primary"),
-      },
-    ],
-  },
-};
+import { translations } from "@/lib/utils";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -60,7 +26,6 @@ export default function Home() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative"
       >
         <div className=" flex justify-center flex-col md:flex-row items-center gap-5 px-4">
           <div className="text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
